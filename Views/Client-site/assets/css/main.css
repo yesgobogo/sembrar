@@ -23,7 +23,7 @@
   --color-default-rgb: 33, 37, 41;
   --color-background: #ffffff;
   --color-background-rgb: 255, 255, 255;
-  --color-primary: #e84545;
+  --color-primary: #39a900;
   --color-primary-rgb: 232, 69, 69;
   --color-secondary: #32353a;
   --color-secondary-rgb: 50, 53, 58;
@@ -211,7 +211,7 @@ section {
 .header .btn-getstarted:hover,
 .header .btn-getstarted:focus:hover {
   color: var(--color-inverse);
-  background: rgba(var(--color-primary-rgb), 0.85);
+  background: #00304d;
 }
 
 @media (max-width: 1200px) {
