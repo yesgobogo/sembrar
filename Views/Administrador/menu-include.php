@@ -5,8 +5,14 @@
                 <div class="logo">
                     <a href="home.php">
                     
-                        <!-- <img src="../Dashboard/images/logo.png" alt="" /> -->
-                        <span>Focus</span>
+                    <style>
+                        .menu-logo img {
+                         width: 80px;  /* Ajusta el tamaño según necesites */
+                        height: auto;  /* Mantiene la proporción */
+}
+                    </style>
+                    <a href="#" class="menu-logo"><img src="../Dashboard/images/senalogo.png" alt="Logo"></a>
+                        <!-- <span>Administrador</span> -->
                     </a>
                 </div>
                 <ul>
