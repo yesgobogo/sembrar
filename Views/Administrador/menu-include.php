@@ -5,15 +5,24 @@
                 <div class="logo">
                     <a href="home.php">
                     
-                    <style>
-                        .menu-logo img {
-                         width: 80px;  /* Ajusta el tamaño según necesites */
-                        height: auto;  /* Mantiene la proporción */
-}
-                    </style>
-                    <a href="#" class="menu-logo"><img src="../Dashboard/images/senalogo.png" alt="Logo"></a>
-                        <!-- <span>Administrador</span> -->
-                    </a>
+                <style>
+                  .menu-logo img {
+                   width: 70px;  /* Tamaño normal */
+                   height: auto;
+                   transition: width 0.3s ease-in-out; /* Animación suave */
+                }
+
+               /* Cuando el menú se despliega, la imagen crece */
+               .menu-open .menu-logo img {
+                width: 80px;  /* Aumenta el tamaño */
+                }
+                </style>
+
+<a href="#" class="menu-logo">
+    <img src="../Dashboard/images/senalogo.png" alt="Logo">
+    <span>Administrador</span>
+</a>
+
                 </div>
                 <ul>
                     
