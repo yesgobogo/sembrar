@@ -36,9 +36,9 @@
 /* Nav Menu Colors */
 :root {
   --color-nav: #3a3939;
-  --color-nav-hover: #e84545;
+  --color-nav-hover: #39a900;
   --color-nav-dropdown: #3a3939;
-  --color-nav-dropdown-hover: #e84545;
+  --color-nav-dropdown-hover: #39a900;
   --color-nav-dropdown-background: #ffffff;
   --color-nav-mobile-background: #ffffff;
 }
@@ -236,7 +236,7 @@ section {
   --color-background: #ffffff;
   --color-secondary: #444444;
   --color-nav: #444444;
-  --color-nav-hover: #e84545;
+  --color-nav-hover: #39a900;
   box-shadow: 0 0 30px 10px rgba(0, 0, 0, 0.1);
 }
 
@@ -267,7 +267,7 @@ section {
   --color-background: #ffffff;
   --color-secondary: #444444;
   --color-nav: #444444;
-  --color-nav-hover: #d83535;
+  --color-nav-hover: #39a900;
 }
 
 /*--------------------------------------------------------------
@@ -1980,7 +1980,7 @@ section {
 
 .contact .php-email-form .error-message {
   display: none;
-  background: #df1529;
+  background: #39a900;
   color: #ffffff;
   text-align: left;
   padding: 15px;
@@ -1991,7 +1991,7 @@ section {
 .contact .php-email-form .sent-message {
   display: none;
   color: #ffffff;
-  background: #059652;
+  background: #39a900;
   text-align: center;
   padding: 15px;
   margin-bottom: 24px;
