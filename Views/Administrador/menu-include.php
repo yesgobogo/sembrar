@@ -74,7 +74,7 @@
                                 <a href="chart-morris.html"><i class="ti-eye"></i>Ver</a>
                             </li>
                         </ul> -->
-                    </li>
+                    <!-- </li> -->
 
                     <!-- <li>
                         <a class="sidebar-sub-toggle">

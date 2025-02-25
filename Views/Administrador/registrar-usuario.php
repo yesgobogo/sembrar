@@ -14,7 +14,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Focus Admin Dashboard</title>
+    <title>Admin Principal</title>
 
     <!-- ================= Favicon ================== -->
     <!-- Standard -->
@@ -85,7 +85,7 @@
                         <div class="page-header">
                             <div class="page-title">
                                 <h1>
-                                    Registrar Usuarios
+                                    Registrar Usuarios 
                                 </h1>
                                 <p>Por favor completa los campos para registrar un nuevo usuario</p>
                             </div>
@@ -155,8 +155,7 @@
                                                 <select name="rol" id="" class="form-control" >
                                                     <option>Seleccione una opción</option>
                                                     <option value="Administrador">Administrador</option>
-                                                    <option value="Vendedor">Vendedor</option>
-                                                    <option value="Cliente">Cliente</option>
+                                                    <option value="Vendedor">Instructor</option>
                                                 </select>
                                             </div>
 
