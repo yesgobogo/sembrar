@@ -13,7 +13,7 @@
     left: 0;
     bottom: 0;
     width: 250px;
-    background: #010A43;
+    background: #39A900;
     /* font-size: 14px; */
     z-index: 100;
     overflow: auto;
@@ -82,11 +82,11 @@
 .sidebar .nano-content>ul li>a {
     display: block;
     cursor: pointer;
-    color: #BDBDC7;
+    color: #ffffff;
     padding: 10px;
     line-height: 30px;
     border-bottom: none;
-    background: #010A43;
+    background: #39A900;
     text-decoration: none;
     -webkit-transition: all 0.3s ease-in-out;
     transition: all 0.3s ease-in-out;
@@ -94,7 +94,7 @@
 }
 
 .sidebar .nano-content>ul li>a:hover {
-  background: #33CB98;
+  background: #00304D;
 }
 
 .sidebar .nano-content>ul li>a>.sidebar-collapse-icon {
@@ -121,7 +121,7 @@
 }
 
 .sidebar .nano-content>ul li.active>a::before {
-    background: #33CB98;
+    background: #00304D;
     content: "";
     height: 100%;
     left: 0;
@@ -146,7 +146,7 @@ html.rtl .sidebar .nano-content>ul>li.label, html.rtl .sidebar .nano-content>ul>
 }
 
 .sidebar .nano-content>ul>li.active>a, .sidebar .nano-content>ul>li.open>a, .sidebar .nano-content>ul>li>ul {
-    background: #33CB98;
+    background: #00304D;
 }
 
 .sidebar .nano-content>ul>li>ul>li.label, .sidebar .nano-content>ul>li>ul>li.content, .sidebar .nano-content>ul>li>ul>li>a {

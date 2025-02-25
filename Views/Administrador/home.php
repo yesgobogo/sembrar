@@ -14,7 +14,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Focus Admin Dashboard</title>
+    <title>Administrador</title>
 
     <!-- ================= Favicon ================== -->
     <!-- Standard -->
@@ -155,7 +155,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="row">
+                    <!-- <div class="row">
                         <div class="col-lg-8">
                             <div class="card">
                                 <div class="card-title">
@@ -166,8 +166,8 @@
                                     <div class="ct-bar-chart m-t-30"></div>
                                 </div>
                             </div>
-                        </div>
-
+                        </div> -->
+<!-- 
                         <div class="col-lg-4">
                             <div class="card">
 
@@ -176,7 +176,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
 
 
                     <div class="row">

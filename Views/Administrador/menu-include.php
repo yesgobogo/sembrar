@@ -4,6 +4,7 @@
             <div class="nano-content">
                 <div class="logo">
                     <a href="home.php">
+                    
                         <!-- <img src="../Dashboard/images/logo.png" alt="" /> -->
                         <span>Focus</span>
                     </a>
@@ -45,7 +46,7 @@
                         </ul>
                     </li>
 
-                    <li>
+                    <!-- <li>
                         <a class="sidebar-sub-toggle">
                             <i class="ti-shopping-cart"></i> Ventas
                             <span class="sidebar-collapse-icon ti-angle-down"></span>
@@ -58,9 +59,9 @@
                                 <a href="chart-morris.html"><i class="ti-eye"></i>Ver</a>
                             </li>
                         </ul>
-                    </li>
+                    </li> -->
 
-                    <li>
+                    <!-- <li>
                         <a class="sidebar-sub-toggle">
                             <i class="ti-user"></i> Clientes
                             <span class="sidebar-collapse-icon ti-angle-down"></span>
@@ -72,10 +73,10 @@
                             <li>
                                 <a href="chart-morris.html"><i class="ti-eye"></i>Ver</a>
                             </li>
-                        </ul>
+                        </ul> -->
                     </li>
 
-                    <li>
+                    <!-- <li>
                         <a class="sidebar-sub-toggle">
                             <i class="ti-user"></i> Productos
                             <span class="sidebar-collapse-icon ti-angle-down"></span>
@@ -88,7 +89,7 @@
                                 <a href="chart-morris.html"><i class="ti-eye"></i>Ver</a>
                             </li>
                         </ul>
-                    </li>
+                    </li> -->
 
                     <li>
                         <a class="sidebar-sub-toggle">
@@ -105,7 +106,7 @@
                         </ul>
                     </li>
 
-                    <li>
+                    <!-- <li>
                         <a class="sidebar-sub-toggle">
                             <i class="ti-user"></i> Descuentos
                             <span class="sidebar-collapse-icon ti-angle-down"></span>
@@ -118,12 +119,12 @@
                                 <a href="chart-morris.html"><i class="ti-eye"></i>Ver</a>
                             </li>
                         </ul>
-                    </li>
+                    </li> -->
 
 
                     <li>
                         <a>
-                            <i class="ti-close"></i> Logout</a>
+                            <i class="ti-close"></i> Salir</a>
                     </li>
                 </ul>
             </div>
