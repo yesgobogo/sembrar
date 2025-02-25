@@ -3799,11 +3799,16 @@ h6.h1 {
 .pa {
   position: absolute;
 }
+.bg-sena{
+  background: url("../images/img_1.jpg");
+  background-size: cover;
+}
+
 /*    Background Mixins
 --------------------------*/
 .bg-primary {
-  background: #5873fe;
-  color: #ffffff;
+  background: #051c91;
+  color: #ffffff9f;
   fill: #5873fe;
 }
 .bg-success {

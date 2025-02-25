@@ -61,20 +61,23 @@
                         </ul>
                     </li>
 
-                    <!-- <li>
+                    <li>
                         <a class="sidebar-sub-toggle">
-                            <i class="ti-shopping-cart"></i> Ventas
+                            <i class="ti-pencil-alt"></i> Ambientes
                             <span class="sidebar-collapse-icon ti-angle-down"></span>
                         </a>
                         <ul>
                             <li>
-                                <a href="chart-flot.html"><i class="ti-plus"></i>Registrar</a>
+                                <a href="chart-flot.html"><i class="ti-plus"></i>Agregar</a>
                             </li>
+                            <!-- <li>
+                                <a href="chart-morris.html"><i class="ti-eye"></i>Editar y Eliminar</a>
+                            </li> -->
                             <li>
                                 <a href="chart-morris.html"><i class="ti-eye"></i>Ver</a>
                             </li>
                         </ul>
-                    </li> -->
+                    </li>
 
                     <!-- <li>
                         <a class="sidebar-sub-toggle">
@@ -108,12 +111,12 @@
 
                     <li>
                         <a class="sidebar-sub-toggle">
-                            <i class="ti-user"></i> Inventario
+                            <i class="ti-clipboard"></i> Inventario
                             <span class="sidebar-collapse-icon ti-angle-down"></span>
                         </a>
                         <ul>
                             <li>
-                                <a href="chart-flot.html"><i class="ti-plus"></i>Registrar</a>
+                                <a href="chart-flot.html"><i class="ti-plus"></i>Actualizar</a>
                             </li>
                             <li>
                                 <a href="chart-morris.html"><i class="ti-eye"></i>Ver</a>
