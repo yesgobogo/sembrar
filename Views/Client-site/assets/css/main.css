@@ -24,7 +24,7 @@
   --color-background: #ffffff;
   --color-background-rgb: 255, 255, 255;
   --color-primary: #39a900;
-  --color-primary-rgb: 232, 69, 69;
+  --color-primary-rgb: 0, 48, 77;
   --color-secondary: #32353a;
   --color-secondary-rgb: 50, 53, 58;
   --color-box-background: #ffffff;
@@ -35,10 +35,10 @@
 
 /* Nav Menu Colors */
 :root {
-  --color-nav: #3a3939;
-  --color-nav-hover: #e84545;
-  --color-nav-dropdown: #3a3939;
-  --color-nav-dropdown-hover: #e84545;
+  --color-nav: #39a900;
+  --color-nav-hover: #39a900;
+  --color-nav-dropdown: #39a900;
+  --color-nav-dropdown-hover: #39a900;
   --color-nav-dropdown-background: #ffffff;
   --color-nav-mobile-background: #ffffff;
 }
@@ -236,7 +236,7 @@ section {
   --color-background: #ffffff;
   --color-secondary: #444444;
   --color-nav: #444444;
-  --color-nav-hover: #e84545;
+  --color-nav-hover: #39a900;
   box-shadow: 0 0 30px 10px rgba(0, 0, 0, 0.1);
 }
 
@@ -267,7 +267,7 @@ section {
   --color-background: #ffffff;
   --color-secondary: #444444;
   --color-nav: #444444;
-  --color-nav-hover: #d83535;
+  --color-nav-hover: #39a900;
 }
 
 /*--------------------------------------------------------------
