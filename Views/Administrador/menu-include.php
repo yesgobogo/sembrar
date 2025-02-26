@@ -7,7 +7,7 @@
                     
                 <style>
                   .menu-logo img {
-                   width: 70px;  /* Tamaño normal */
+                   width: 65px;  /* Tamaño normal */
                    height: auto;
                    transition: width 0.3s ease-in-out; /* Animación suave */
                 }
@@ -19,8 +19,8 @@
                 </style>
 
 <a href="#" class="menu-logo">
-    <img src="../Dashboard/images/senalogo.png" alt="Logo">
-    <span>Administrador</span>
+    <img src="../Dashboard/images/SENA.png" alt="Logo">
+    <span></span>
 </a>
 
                 </div>
