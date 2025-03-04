@@ -24,14 +24,14 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `ambiente`
---
+-- -- Estructura de tabla para la tabla `ambiente`
+-- --
 
-CREATE TABLE `ambiente` (
-  `id` int(11) NOT NULL,
-  `nombre_ambiente` varchar(255) NOT NULL,
-  `disponible` tinyint(1) NOT NULL DEFAULT 1
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+-- CREATE TABLE `ambiente` (
+--   `id` int(11) NOT NULL,
+--   `nombre_ambiente` varchar(255) NOT NULL,
+--   `disponible` tinyint(1) NOT NULL DEFAULT 1
+-- ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 

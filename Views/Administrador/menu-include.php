@@ -70,9 +70,9 @@
                             <li>
                                 <a href="chart-flot.html"><i class="ti-plus"></i>Agregar</a>
                             </li>
-                            <li>
+                            <!-- <li>
                                 <a href="admin_dashboard.php"><i class="ti-eye"></i>Ver</a>
-                            </li>
+                            </li> -->
                         </ul>
                     </li>
 
