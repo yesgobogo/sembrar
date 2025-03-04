@@ -118,93 +118,81 @@
                                 <div class="card-body">
                                     <div class="basic-elements">
                                     <form action="../../Controllers/registrarUserAdmin.php" method="POST" enctype="multipart/form-data">
+    <div class="row">
+        <div class="form-group col-md-6">
+            <label>Identificación:</label>
+            <input type="number" class="form-control" placeholder="Ej: 1070782156" name="identificacion" required>
+        </div>
+        <div class="form-group col-md-6">
+            <label>Tipo de Documento:</label>
+            <select name="tipo_doc" class="form-control" required>
+                <option value="">Seleccione una opción</option>
+                <option value="CC">CC</option>
+                <option value="CE">CE</option>
+                <option value="PASAPORTE">PASAPORTE</option>
+            </select>
+        </div>
+        <div class="form-group col-md-6">
+            <label>Nombres:</label>
+            <input type="text" class="form-control" placeholder="Ej: Miguel Angel" name="nombres" required>
+        </div>
+        <div class="form-group col-md-6">
+            <label>Apellidos:</label>
+            <input type="text" class="form-control" placeholder="Ej: Gallego Restrepo" name="apellidos" required>
+        </div>
+        <div class="form-group col-md-6">
+            <label>Email:</label>
+            <input type="email" class="form-control" placeholder="Ej: miguel@gmail.com" name="email" required>
+        </div>
+        <div class="form-group col-md-6">
+            <label>Teléfono:</label>
+            <input type="number" class="form-control" placeholder="Ej: 32123443322" name="telefono" required>
+        </div>
+        <div class="form-group col-md-6">
+            <label>Rol:</label>
+            <select name="rol" class="form-control" required>
+                <option value="">Seleccione una opción</option>
+                <option value="Administrador">Administrador</option>
+                <option value="Instructor">Instructor</option>
+            </select>
+        </div>
+        <div class="form-group col-md-6">
+            <label>Estado:</label>
+            <select name="estado" class="form-control" required>
+                <option value="">Seleccione una opción</option>
+                <option value="Activo">Activo</option>
+                <option value="Pendiente">Pendiente</option>
+                <option value="Bloqueado">Bloqueado</option>
+            </select>
+        </div>
+        <div class="form-group col-md-6">
+            <label>Tipo de Formación:</label>
+            <select name="tipo_formacion" class="form-control" required>
+                <option value="">Seleccione una opción</option>
+                <option value="Tecnico">Técnico</option>
+                <option value="Tecnologo">Tecnólogo</option>
+            </select>
+        </div>
+        <div class="form-group col-md-6">
+            <label>Foto Usuario:</label>
+            <input type="file" class="form-control" name="foto" accept=".jpeg, .jpg, .png, .gif">
+        </div>
+    </div>
+    <button type="submit" class="btn btn-primary btn-flat m-b-30 m-t-30">Crear Nuevo Usuario</button>
+</form>
 
-                                        <div class="row">
-                                            <div class="form-group col-md-6">
-                                                <label>Identificacion:</label>
-                                                <input type="number" class="form-control" placeholder="Ej: 1070782156" name="identificacion">
-                                            </div>
-                                            <div class="form-group col-md-6">
-                                                <label>Tipo de Documento:</label>
-                                                <select name="tipo_doc" id="" class="form-control" >
-                                                    <option>Seleccione una opción</option>
-                                                    <option value="CC">CC</option>
-                                                    <option value="CE">CE</option>
-                                                    <option value="PASAPORTE">PASAPORTE</option>
-                                                </select>
-                                            </div>
-                                            <div class="form-group col-md-6">
-                                                <label>Nombres:</label>
-                                                <input type="text" class="form-control" placeholder="Ej: Miguel Angel" name="nombres">
-                                            </div>
-                                            <div class="form-group col-md-6">
-                                                <label>Apellidos:</label>
-                                                <input type="text" class="form-control" placeholder="Ej: Gallego Restrepo" name="apellidos">
-                                            </div>
-                                            <div class="form-group col-md-6">
-                                                <label>Email:</label>
-                                                <input type="email" class="form-control" placeholder="Ej: miguel@gmail.com" name="email">
-                                            </div>
-                                            <div class="form-group col-md-6">
-                                                <label>Teléfono:</label>
-                                                <input type="number" class="form-control" placeholder="Ej: 32123443322" name="telefono">
-                                            </div>
-                                            
-                                            <div class="form-group col-md-6">
-                                                <label>Rol:</label>
-                                                <select name="rol" id="" class="form-control" >
-                                                    <option>Seleccione una opción</option>
-                                                    <option value="Administrador">Administrador</option>
-                                                    <option value="Instructor">Instructor</option>
-                                                    <!-- <option value="Cliente">Cliente</option> -->
-                                                </select>
-                                            </div>
-
-                                            <div class="form-group col-md-6">
-                                                <label>Estado:</label>
-                                                <select name="tipo_doc" id="" class="form-control" >
-                                                    <option>Seleccione una opción</option>
-                                                    <option value="Activo">Activo</option>
-                                                    <option value="Pendiente">Pendiente</option>
-                                                    <option value="Bloqueado">Bloqueado</option>
-                                                </select>
-                                            </div>
-
-                                            <div class="form-group col-md-6">
-                                                <label>Tipo de Formación</label>
-                                                <select name="tipo_doc" id="" class="form-control" >
-                                                    <option>Seleccione una opción</option>
-                                                    <option value="Tecnico">Técnico</option>
-                                                    <option value="Tecnologo">Tecnologo</option>
-                                                </select>
-                                            </div>
-
-                                            <div class="form-group col-md-6">
-                                                <label>Foto Usuario:</label>
-                                                <input type="file" class="form-control"  name="foto" accept=".jpeg, .jpg, .png, .gif">
-                                            </div>
-
-                                        </div>
-
-
-
-                                        <button type="submit" class="btn btn-primary btn-flat m-b-30 m-t-30">Crear Nuevo Usuario</button>
-
-                                        </form>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <!-- /# column -->
                         
-                        <!-- /# column -->
                     </div>
 
 
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="footer">
-                                <p>2023 © Admin Board. - <a href="#">Sembrar</a></p>
+                                <p>2025 © Admin Board. - <a href="#">Asignacion Ambientes</a></p>
                             </div>
                         </div>
                     </div>

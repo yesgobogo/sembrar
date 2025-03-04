@@ -707,7 +707,7 @@ a.dt-button.active:not(.disabled) {
   transition: margin-left 300ms ease-in-out 0s;
 }
 .logo {
-  background: #010A43;
+  background: #30a900;
   display: inline-block;
   padding: 15px 0;
   text-align: center;
@@ -2834,7 +2834,7 @@ tbody tr td:last-child {
   text-transform: uppercase;
 }
 .login-form label a {
-  color: #5873fe;
+  color: #0526cb;
 }
 .social-login-content {
   margin: 0px -30px;
@@ -3668,7 +3668,7 @@ tbody tr td:last-child {
 body {
   font-family: 'Roboto', sans-serif;
   background: rgba(88, 115, 254, 0.04);
-  color: #868e96;
+  color: #30a900;
   font-size: 14px;
 }
 a,

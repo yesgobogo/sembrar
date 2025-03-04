@@ -7,7 +7,7 @@
                     
                 <style>
                   .menu-logo img {
-                   width: 70px;  /* Tamaño normal */
+                   width: 65px;  /* Tamaño normal */
                    height: auto;
                    transition: width 0.3s ease-in-out; /* Animación suave */
                 }
@@ -19,8 +19,8 @@
                 </style>
 
 <a href="#" class="menu-logo">
-    <img src="../Dashboard/images/senalogo.png" alt="Logo">
-    <span>Administrador</span>
+    <img src="../Dashboard/images/SENA.png" alt="Logo">
+    <span></span>
 </a>
 
                 </div>
@@ -68,13 +68,10 @@
                         </a>
                         <ul>
                             <li>
-                                <a href="admin_edit_ambiente.php"><i class="ti-plus"></i>Agregar</a>
+                                <a href="chart-flot.html"><i class="ti-plus"></i>Agregar</a>
                             </li>
-                            <!-- <li>
-                                <a href="chart-morris.html"><i class="ti-eye"></i>Editar y Eliminar</a>
-                            </li> -->
                             <li>
-                                <a href="chart-morris.html"><i class="ti-eye"></i>Ver</a>
+                                <a href="admin_dashboard.php"><i class="ti-eye"></i>Ver</a>
                             </li>
                         </ul>
                     </li>

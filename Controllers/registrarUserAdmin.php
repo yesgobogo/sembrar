@@ -1,49 +1,69 @@
 <?php
+require_once("../Models/conexion.php");
 
-    // ENLAZAMOS LAS DEPEDENCIAS NECESARIAS  
-    require_once("../Models/conexion.php");
-    require_once("../Models/consultas.php");    
+try {
+    // Creamos el objeto de conexión
+    $conexion = new Conexion();
+    $pdo = $conexion->get_conexion();
 
-    // ATERRIZAMOS EN VARIABLES LOS DATOS INGRESADOS
-    // POR EL USUARIO, LOS CUALES VIAJAN A TRAVÉS DEL 
-    // METHOD POST Y LOS NAME DE LOS CAMPOS
+    // Verificamos que los datos llegaron por POST
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        $identificacion = trim($_POST['identificacion']);
+        $tipo_doc = trim($_POST['tipo_doc']);
+        $nombres = trim($_POST['nombres']);
+        $apellidos = trim($_POST['apellidos']);
+        $email = trim($_POST['email']);
+        $telefono = trim($_POST['telefono']);
+        $clave = trim($_POST['identificacion']); // Se usa la identificación como clave
+        $rol = trim($_POST['rol']); // Cliente, Instructor o Administrador
+        $estado = trim($_POST['estado']); // Pendiente, Activo o Inactivo
 
-    $identificacion = $_POST['identificacion'];
-    $tipo_doc = $_POST['tipo_doc'];
-    $nombres = $_POST['nombres'];
-    $apellidos = $_POST['apellidos'];
-    $email = $_POST['email'];
-    $telefono = $_POST['telefono'];
-    $clave = $_POST['identificacion'];
-    $rol = "Cliente";
-    $estado = "Pendiente";
-
-    // Verificamos que las claves coincidan
-
-    
-        // VALIDAMOS QUE LOS CAMPOS ESTEN COMPLETAMENTE DILIGENCIADOS
-        if ( strlen($identificacion)>0 && strlen($tipo_doc)>0 && strlen($nombres)>0 && strlen($apellidos)>0 &&  strlen($email)>0 && strlen($telefono)>0 && strlen($clave)>0) {
+        // Validamos que los campos no estén vacíos
+        if (!empty($identificacion) && !empty($tipo_doc) && !empty($nombres) && !empty($apellidos) &&
+            !empty($email) && !empty($telefono) && !empty($clave) && !empty($rol) && !empty($estado)) {
             
-            // ENCRIPTAMOS LA CLAVE
+            // Encriptamos la clave con MD5
             $claveMd = md5($clave);
 
-            // CREAMOS UNA VARIABLE PARA DEFINIR LA RUTA DONDE QUEDARA ALOJADA LA IMAGEN
-            $foto = "../Uploads/Usuarios/".$_FILES['foto']['name'];
-            // MOVEMOS EL ARCHIVO A LA CARPETA UPLOADS Y LA CARPETA USUARIOS
-            $mover = move_uploaded_file($_FILES['foto']['tmp_name'], $foto);
+            // Procesamos la imagen
+            if (!empty($_FILES['foto']['name'])) {
+                $foto = "../Uploads/Usuarios/" . basename($_FILES['foto']['name']);
+                move_uploaded_file($_FILES['foto']['tmp_name'], $foto);
+            } else {
+                $foto = NULL;
+            }
 
-            // CREAMOS EL OBJETO A PARTIR DE LA CLASE
-            // PARA ENVIAR LOS ARGUMENTOS A LA FUNCION EN EL MODELO.(ARCHIVO CONSULTAS)
-            $objConsultas = new Consultas();
-            $result = $objConsultas->insertarUserAdmin($identificacion,$tipo_doc,$nombres,$apellidos,$email,$telefono,$claveMd,$rol,$estado,$foto);
+            // Insertamos los datos en la base de datos con PDO
+            $sql = "INSERT INTO users (identificacion, tipo_doc, nombres, apellidos, email, telefono, clave, rol, estado, foto)
+                    VALUES (:identificacion, :tipo_doc, :nombres, :apellidos, :email, :telefono, :clave, :rol, :estado, :foto)";
+            
+            $stmt = $pdo->prepare($sql);
+            $stmt->bindParam(":identificacion", $identificacion);
+            $stmt->bindParam(":tipo_doc", $tipo_doc);
+            $stmt->bindParam(":nombres", $nombres);
+            $stmt->bindParam(":apellidos", $apellidos);
+            $stmt->bindParam(":email", $email);
+            $stmt->bindParam(":telefono", $telefono);
+            $stmt->bindParam(":clave", $claveMd);
+            $stmt->bindParam(":rol", $rol);
+            $stmt->bindParam(":estado", $estado);
+            $stmt->bindParam(":foto", $foto);
 
-
+            if ($stmt->execute()) {
+                echo '<script>alert("Registro exitoso");</script>';
+                echo "<script>location.href='../Views/Extras/page-register.html';</script>";
+            } else {
+                echo '<script>alert("Error al registrar");</script>';
+                echo "<script>location.href='../Views/Extras/page-register.html';</script>";
+            }
+        } else {
+            echo '<script>alert("Por favor, complete todos los campos");</script>';
+            echo "<script>location.href='../Views/Extras/page-register.html';</script>";
         }
-        else{
-            echo '<script>alert("Por favor complete todos los campos")</script>';
-            echo "<script> location.href='../Views/Extras/page-register.html' </script>";
-        }
-        
-    
-
+    }
+} catch (PDOException $e) {
+    echo "Error en la base de datos: " . $e->getMessage();
+}
 ?>
+
+
