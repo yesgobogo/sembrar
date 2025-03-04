@@ -68,7 +68,7 @@
                         </a>
                         <ul>
                             <li>
-                                <a href="chart-flot.html"><i class="ti-plus"></i>Agregar</a>
+                                <a href="admin_edit_ambiente.php"><i class="ti-plus"></i>Agregar</a>
                             </li>
                             <!-- <li>
                                 <a href="chart-morris.html"><i class="ti-eye"></i>Editar y Eliminar</a>
