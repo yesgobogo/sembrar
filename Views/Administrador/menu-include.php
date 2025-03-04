@@ -68,7 +68,7 @@
                         </a>
                         <ul>
                             <li>
-                                <a href="admin_add_ambiente.php"><i class="ti-plus"></i>Agregar</a>
+                                <a href="registrar_ambiente.php"><i class="ti-plus"></i>Agregar</a>
                             </li>
                             <li>
                                 <a href="admin_dashboard.php"><i class="ti-eye"></i>Ver</a>
