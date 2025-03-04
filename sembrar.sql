@@ -20,3 +20,4 @@ INSERT INTO `users` (`identificacion`, `tipo_doc`, `nombres`, `apellidos`, `emai
 
 COMMIT;
 
+
