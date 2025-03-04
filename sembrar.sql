@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Jul 26, 2023 at 11:43 PM
--- Server version: 10.4.22-MariaDB
--- PHP Version: 8.1.2
+-- Servidor: 127.0.0.1
+-- Tiempo de generación: 28-02-2025 a las 14:58:00
+-- Versión del servidor: 10.4.32-MariaDB
+-- Versión de PHP: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,13 +18,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `sembrar`
+-- Base de datos: `sembrar`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `users`
+-- Estructura de tabla para la tabla `users`
 --
 
 CREATE TABLE `users` (
@@ -35,24 +35,24 @@ CREATE TABLE `users` (
   `email` varchar(40) NOT NULL,
   `telefono` bigint(15) NOT NULL,
   `clave` varchar(200) NOT NULL,
-  `rol` varchar(12) NOT NULL,
+  `rol` varchar(50) NOT NULL,
   `estado` varchar(15) NOT NULL,
   `foto` varchar(200) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `users`
+-- Volcado de datos para la tabla `users`
 --
 
 INSERT INTO `users` (`identificacion`, `tipo_doc`, `nombres`, `apellidos`, `email`, `telefono`, `clave`, `rol`, `estado`, `foto`) VALUES
-(123, 'CC', 'Miguel Angel', 'Gallego Restrepo', 'miguel@gmail.com', 3212334455, '202cb962ac59075b964b07152d234b70', 'Cliente', 'Activo', '');
+(123, 'CC', 'Miguel Angel', 'Gallego Restrepo', 'miguel@gmail.com', 3212334455, '202cb962ac59075b964b07152d234b70', 'Administrador', 'Activo', '');
 
 --
--- Indexes for dumped tables
+-- Índices para tablas volcadas
 --
 
 --
--- Indexes for table `users`
+-- Indices de la tabla `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`identificacion`);

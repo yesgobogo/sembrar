@@ -1,49 +1,70 @@
 <?php
+// ENLAZAMOS LAS DEPENDENCIAS NECESARIAS  
+require_once("../Models/conexion.php");
+require_once("../Models/consultas.php");
 
-    // ENLAZAMOS LAS DEPEDENCIAS NECESARIAS  
-    require_once("../Models/conexion.php");
-    require_once("../Models/consultas.php");    
+// ATERRIZAMOS LOS DATOS INGRESADOS POR EL USUARIO A TRAVÉS DEL METHOD POST
+$identificacion = trim($_POST['identificacion']);
+$tipo_doc = trim($_POST['tipo_doc']);
+$nombres = trim($_POST['nombres']);
+$apellidos = trim($_POST['apellidos']);
+$email = trim($_POST['email']);
+$telefono = trim($_POST['telefono']);
+$clave = trim($_POST['identificacion']); // Contraseña por defecto igual a la identificación
+$rol = "instructor"; // Puedes cambiarlo a "administrador" si es necesario
+$estado = "pendiente";
+$tipo_formacion = "tecnico"; // Debes permitir al usuario elegir entre 'tecnico' o 'tecnologo'
 
-    // ATERRIZAMOS EN VARIABLES LOS DATOS INGRESADOS
-    // POR EL USUARIO, LOS CUALES VIAJAN A TRAVÉS DEL 
-    // METHOD POST Y LOS NAME DE LOS CAMPOS
+// VALIDAMOS QUE TODOS LOS CAMPOS ESTÉN COMPLETAMENTE LLENOS
+if (!empty($identificacion) && !empty($tipo_doc) && !empty($nombres) && !empty($apellidos) && 
+    !empty($email) && !empty($telefono) && !empty($clave) && !empty($tipo_formacion)) {
 
-    $identificacion = $_POST['identificacion'];
-    $tipo_doc = $_POST['tipo_doc'];
-    $nombres = $_POST['nombres'];
-    $apellidos = $_POST['apellidos'];
-    $email = $_POST['email'];
-    $telefono = $_POST['telefono'];
-    $clave = $_POST['identificacion'];
-    $rol = "Cliente";
-    $estado = "Pendiente";
+    // ENCRIPTAMOS LA CLAVE CON PASSWORD_HASH (Más seguro que md5)
+    $claveHash = password_hash($clave, PASSWORD_DEFAULT);
 
-    // Verificamos que las claves coincidan
-
-    
-        // VALIDAMOS QUE LOS CAMPOS ESTEN COMPLETAMENTE DILIGENCIADOS
-        if ( strlen($identificacion)>0 && strlen($tipo_doc)>0 && strlen($nombres)>0 && strlen($apellidos)>0 &&  strlen($email)>0 && strlen($telefono)>0 && strlen($clave)>0) {
-            
-            // ENCRIPTAMOS LA CLAVE
-            $claveMd = md5($clave);
-
-            // CREAMOS UNA VARIABLE PARA DEFINIR LA RUTA DONDE QUEDARA ALOJADA LA IMAGEN
-            $foto = "../Uploads/Usuarios/".$_FILES['foto']['name'];
-            // MOVEMOS EL ARCHIVO A LA CARPETA UPLOADS Y LA CARPETA USUARIOS
-            $mover = move_uploaded_file($_FILES['foto']['tmp_name'], $foto);
-
-            // CREAMOS EL OBJETO A PARTIR DE LA CLASE
-            // PARA ENVIAR LOS ARGUMENTOS A LA FUNCION EN EL MODELO.(ARCHIVO CONSULTAS)
-            $objConsultas = new Consultas();
-            $result = $objConsultas->insertarUserAdmin($identificacion,$tipo_doc,$nombres,$apellidos,$email,$telefono,$claveMd,$rol,$estado,$foto);
-
-
-        }
-        else{
-            echo '<script>alert("Por favor complete todos los campos")</script>';
-            echo "<script> location.href='../Views/Extras/page-register.html' </script>";
-        }
+    // PROCESAMOS LA IMAGEN SOLO SI SE HA SUBIDO
+    if (!empty($_FILES['foto']['name'])) {
+        $directorio = "../Uploads/Usuarios/";
+        $nombreFoto = basename($_FILES['foto']['name']);
+        $rutaFoto = $directorio . $nombreFoto;
         
-    
+        // MOVEMOS EL ARCHIVO A LA CARPETA DE DESTINO
+        if (!move_uploaded_file($_FILES['foto']['tmp_name'], $rutaFoto)) {
+            echo '<script>alert("Error al subir la imagen")</script>';
+            echo "<script> location.href='../Views/Extras/page-register.html' </script>";
+            exit();
+        }
+    } else {
+        $rutaFoto = "../Uploads/Usuarios/default.png"; // Imagen por defecto si no se sube ninguna
+    }
 
+    // CREAMOS EL OBJETO DE LA CLASE CONSULTAS
+    $objConsultas = new Consultas();
+
+    // VERIFICAMOS SI EL EMAIL YA ESTÁ REGISTRADO PARA EVITAR DUPLICADOS
+    $objConsultas = new Consultas();
+if ($objConsultas->verificarEmailExistente($email)) {
+    echo '<script>alert("El correo ya está registrado. Usa otro.")</script>';
+    echo "<script> location.href='../Views/Extras/page-register.html' </script>";
+} else {
+    $result = $objConsultas->insertarUserAdmin($identificacion, $tipo_doc, $nombres, $apellidos, $email, $telefono, $claveMd, $rol, $estado, $foto);
+}
+
+
+    // INSERTAMOS EL USUARIO EN LA BASE DE DATOS
+    
+    $result = $objConsultas->insertarUserAdmin($identificacion, $tipo_doc, $nombres, $apellidos, $email, $telefono, $claveHash, $rol, $estado, $tipo_formacion, $rutaFoto);
+
+    if ($result) {
+        echo '<script>alert("Usuario registrado correctamente")</script>';
+        echo "<script> location.href='../Views/Extras/page-login.html' </script>";
+    } else {
+        echo '<script>alert("Error al registrar usuario")</script>';
+        echo "<script> location.href='../Views/Extras/page-register.html' </script>";
+    }
+} else {
+    echo '<script>alert("Por favor complete todos los campos")</script>';
+    echo "<script> location.href='../Views/Extras/page-register.html' </script>";
+}
 ?>
+
