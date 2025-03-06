@@ -11,7 +11,6 @@ SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
 SET time_zone = "+00:00";
 
-
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
@@ -20,18 +19,6 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `sembrar`
 --
-
--- --------------------------------------------------------
-
---
--- -- Estructura de tabla para la tabla `ambiente`
--- --
-
--- CREATE TABLE `ambiente` (
---   `id` int(11) NOT NULL,
---   `nombre_ambiente` varchar(255) NOT NULL,
---   `disponible` tinyint(1) NOT NULL DEFAULT 1
--- ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -82,9 +69,9 @@ INSERT INTO `ambientes` (`Id_ambiente`, `nombre_ambiente`, `disponible`) VALUES
 
 --
 -- Estructura de tabla para la tabla `users`
+--
 CREATE TABLE `users` (
-    `id` INT AUTO_INCREMENT PRIMARY KEY,  -- Clave primaria única
-    `identificacion` VARCHAR(50) NOT NULL UNIQUE,  -- Único, pero NO clave primaria
+    `identificacion` VARCHAR(50) NOT NULL PRIMARY KEY,  
     `tipo_doc` ENUM('CC', 'TI', 'CE', 'PASAPORTE') NOT NULL,
     `nombres` VARCHAR(100) NOT NULL,
     `apellidos` VARCHAR(100) NOT NULL,
@@ -93,46 +80,31 @@ CREATE TABLE `users` (
     `clave` VARCHAR(32) NOT NULL,
     `rol` ENUM('Cliente', 'Instructor', 'Administrador') NOT NULL,
     `estado` ENUM('Pendiente', 'Activo', 'Suspendido') NOT NULL DEFAULT 'Pendiente',
+    `tipo_formacion` ENUM('Bilingüismo', 'Transversales', 'Técnica', 'N/A') NOT NULL DEFAULT 'N/A',
     `foto` VARCHAR(255) DEFAULT NULL,
     `fecha_registro` TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
+--
 -- Volcado de datos para la tabla `users`
-INSERT INTO `users` (`identificacion`, `tipo_doc`, `nombres`, `apellidos`, `email`, `telefono`, `clave`, `rol`, `estado`, `foto`) VALUES
-(123, 'CC', 'Miguel Angel', 'Gallego Restrepo', 'miguel@gmail.com', 3212334455, '202cb962ac59075b964b07152d234b70', 'Administrador', 'Activo', '');
+--
+INSERT INTO `users` (`identificacion`, `tipo_doc`, `nombres`, `apellidos`, `email`, `telefono`, `clave`, `rol`, `estado`, `tipo_formacion`, `foto`) VALUES
+('123', 'CC', 'Miguel Angel', 'Gallego Restrepo', 'miguel@gmail.com', '3212334455', '202cb962ac59075b964b07152d234b70', 'Administrador', 'Activo', 'Técnica', '');
 
+-- --------------------------------------------------------
 
 --
 -- Índices para tablas volcadas
 --
 
 --
--- Indices de la tabla `ambiente`
---
-ALTER TABLE `ambiente`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indices de la tabla `ambientes`
+-- Índices de la tabla `ambientes`
 --
 ALTER TABLE `ambientes`
   ADD PRIMARY KEY (`Id_ambiente`);
 
---
--- Indices de la tabla `users`
---
-ALTER TABLE `users`
-  ADD PRIMARY KEY (`identificacion`);
+-- No se agrega nuevamente la clave primaria a `users` porque ya está definida en la creación de la tabla
 
---
--- AUTO_INCREMENT de las tablas volcadas
---
-
---
--- AUTO_INCREMENT de la tabla `ambiente`
---
-ALTER TABLE `ambiente`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

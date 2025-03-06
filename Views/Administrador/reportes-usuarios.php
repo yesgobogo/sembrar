@@ -2,6 +2,7 @@
 
     require_once("../../Models/conexion.php");
     require_once("../../Models/consultas.php");
+    require_once("../../Models/seguridadAdministrador.php");
     require_once("../../Controllers/mostrarInfoAdmin.php");
 
 ?>
