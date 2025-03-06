@@ -134,19 +134,19 @@
         </div>
         <div class="form-group col-md-6">
             <label>Nombres:</label>
-            <input type="text" class="form-control" placeholder="Ej: Miguel Angel" name="nombres" required>
+            <input type="text" class="form-control" placeholder="Ej: Angel Manuel" name="nombres" required>
         </div>
         <div class="form-group col-md-6">
             <label>Apellidos:</label>
-            <input type="text" class="form-control" placeholder="Ej: Gallego Restrepo" name="apellidos" required>
+            <input type="text" class="form-control" placeholder="Ej: Alvaro Ortiz" name="apellidos" required>
         </div>
         <div class="form-group col-md-6">
             <label>Email:</label>
-            <input type="email" class="form-control" placeholder="Ej: miguel@gmail.com" name="email" required>
+            <input type="email" class="form-control" placeholder="Ej: angel48@gmail.com" name="email" required>
         </div>
         <div class="form-group col-md-6">
             <label>Teléfono:</label>
-            <input type="number" class="form-control" placeholder="Ej: 32123443322" name="telefono" required>
+            <input type="number" class="form-control" placeholder="Ej: 3204756821" name="telefono" required>
         </div>
         <div class="form-group col-md-6">
             <label>Rol:</label>
@@ -169,14 +169,16 @@
             <label>Tipo de Formación:</label>
             <select name="tipo_formacion" class="form-control" required>
                 <option value="">Seleccione una opción</option>
-                <option value="Tecnico">Técnico</option>
-                <option value="Tecnologo">Tecnólogo</option>
+                <option value="Bilingüismo">Bilingüismo</option>
+                <option value="Transversales">Transversales</option>
+                <option value="Técnica">Técnica</option>
+                <option value="N/A">N/A</option>
             </select>
         </div>
-        <div class="form-group col-md-6">
+        <!-- <div class="form-group col-md-6">
             <label>Foto Usuario:</label>
             <input type="file" class="form-control" name="foto" accept=".jpeg, .jpg, .png, .gif">
-        </div>
+        </div> -->
     </div>
     <button type="submit" class="btn btn-primary btn-flat m-b-30 m-t-30">Crear Nuevo Usuario</button>
 </form>
