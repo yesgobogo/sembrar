@@ -41,7 +41,7 @@
         // Pintamos la información consultada en el artefacto(FORM)
 
         foreach ($result as $f) {
-            echo '
+            echo  '
             
             <form action="../../Controllers/actualizarUserAdmin.php" method="POST">
 

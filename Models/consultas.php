@@ -5,7 +5,7 @@
 
         // FUNCIONES MÓDULO USUARIOS
 
-        public function insertarUserEx($identificacion,$tipo_doc,$nombres,$apellidos,$email,$telefono,$claveMd,$rol,$estado){
+        public function insertarUserEx($identificacion,$tipo_doc,$nombres,$apellidos,$email,$telefono,$claveMd,$rol,$estado,$tipo_formacion){
             
             // CREAMOS EL OBJETO DE CONEXION 
             $objConexion = new Conexion();
@@ -33,7 +33,7 @@
 
             
             // CREAMOS LA VARIABLE QUE CONTENDRA LA CONSULTA A EJECUTAR
-            $insertar = "INSERT INTO users(identificacion,tipo_doc,nombres,apellidos,email,telefono,clave,rol,estado) VALUES(:identificacion,:tipo_doc,:nombres,:apellidos,:email,:telefono,:claveMd,:rol,:estado)";
+            $insertar = "INSERT INTO users(identificacion,tipo_doc,nombres,apellidos,email,telefono,clave,rol,estado,tipo_formacion) VALUES(:identificacion,:tipo_doc,:nombres,:apellidos,:email,:telefono,:claveMd,:rol,:estado,:tipo_formacion)";
 
             // PREPARAMOS TODO LO NECESARIO PARA EJECUTAR LA FUNCION ANTERIOR
 
@@ -50,6 +50,7 @@
             $result->bindParam(":claveMd", $claveMd);
             $result->bindParam(":rol", $rol);
             $result->bindParam(":estado", $estado);
+            $result->bindParam(":tipo_formacion", $tipo_formacion);
 
             // EJECUTAMOS EL INSERT
             $result->execute();
@@ -59,7 +60,7 @@
             }
         }
 
-        public function insertarUserAdmin($identificacion,$tipo_doc,$nombres,$apellidos,$email,$telefono,$claveMd,$rol,$estado,$foto){
+        public function insertarUserAdmin($identificacion,$tipo_doc,$nombres,$apellidos,$email,$telefono,$claveMd,$rol,$estado,$tipo_formacion,$foto){
             
             // CREAMOS EL OBJETO DE CONEXION 
             $objConexion = new Conexion();
@@ -87,7 +88,7 @@
 
             
             // CREAMOS LA VARIABLE QUE CONTENDRA LA CONSULTA A EJECUTAR
-            $insertar = "INSERT INTO users(identificacion,tipo_doc,nombres,apellidos,email,telefono,clave,rol,estado,foto) VALUES(:identificacion,:tipo_doc,:nombres,:apellidos,:email,:telefono,:claveMd,:rol,:estado, :foto)";
+            $insertar = "INSERT INTO users(identificacion,tipo_doc,nombres,apellidos,email,telefono,clave,rol,estado,tipo_formacion,foto) VALUES(:identificacion,:tipo_doc,:nombres,:apellidos,:email,:telefono,:claveMd,:rol,:estado,:tipo_formacion,:foto)";
 
             // PREPARAMOS TODO LO NECESARIO PARA EJECUTAR LA FUNCION ANTERIOR
 
@@ -104,6 +105,7 @@
             $result->bindParam(":claveMd", $claveMd);
             $result->bindParam(":rol", $rol);
             $result->bindParam(":estado", $estado);
+            $result->bindParam(":tipo_formacion", $tipo_formacion);
             $result->bindParam(":foto", $foto);
 
             // EJECUTAMOS EL INSERT
@@ -148,12 +150,12 @@
             return $f;
         }
 
-        public function actualizarUserAdmin($identificacion,$tipo_doc,$nombres,$apellidos,$email,$telefono,$rol,$estado){
+        public function actualizarUserAdmin($identificacion,$tipo_doc,$nombres,$apellidos,$email,$telefono,$rol,$estado,$tipo_formacion){
 
             $objConexion = new Conexion();
             $conexion = $objConexion->get_conexion();
 
-            $actualizar = " UPDATE users SET tipo_doc=:tipo_doc, nombres=:nombres, apellidos=:apellidos, email=:email, telefono=:telefono, rol=:rol, estado=:estado WHERE identificacion=:identificacion";
+            $actualizar = " UPDATE users SET tipo_doc=:tipo_doc, nombres=:nombres, apellidos=:apellidos, email=:email, telefono=:telefono, rol=:rol, estado=:estado tipo_formacion=tipo_formacion WHERE identificacion=:identificacion";
             $result = $conexion->prepare($actualizar);
 
             $result->bindParam("identificacion", $identificacion);
@@ -164,6 +166,7 @@
             $result->bindParam("telefono", $telefono);
             $result->bindParam("rol", $rol);
             $result->bindParam("estado", $estado);
+            $result->bindParam("tipo_formacion", $tipo_formacion);
 
             $result->execute();
 
@@ -173,12 +176,12 @@
         }
 
 
-        public function modificarCuentaAdmin($identificacion,$tipo_doc,$nombres,$apellidos,$email,$telefono){
+        public function modificarCuentaAdmin($identificacion,$tipo_doc,$nombres,$apellidos,$email,$telefono,$tipo_formacion){
 
             $objConexion = new Conexion();
             $conexion = $objConexion->get_conexion();
 
-            $actualizar = " UPDATE users SET tipo_doc=:tipo_doc, nombres=:nombres, apellidos=:apellidos, email=:email, telefono=:telefono WHERE identificacion=:identificacion";
+            $actualizar = " UPDATE users SET tipo_doc=:tipo_doc, nombres=:nombres, apellidos=:apellidos, email=:email, telefono=:telefono, tipo_formacion=tipo_formacion WHERE identificacion=:identificacion";
             $result = $conexion->prepare($actualizar);
 
             $result->bindParam("identificacion", $identificacion);
@@ -187,6 +190,8 @@
             $result->bindParam("apellidos", $apellidos);
             $result->bindParam("email", $email);
             $result->bindParam("telefono", $telefono);
+            $result->bindParam("tipo_formacion", $tipo_formacion);
+
 
             $result->execute();
 
@@ -306,15 +311,15 @@
 
                         switch ($f['rol']) {
                             case 'Administrador':
-                                echo '<script>alert("LA BUEEENA ADMIN")</script>';
+                                echo '<script>alert("BIENVENIDO ADMINISTRADOR")</script>';
                                 echo "<script> location.href='../Views/Administrador/home.php' </script>";
                                 break;
                             case 'Cliente':
-                                echo '<script>alert("LA BUEEENA CLIENTE")</script>';
+                                echo '<script>alert(" BIENVENIDO INSTRUCTOR")</script>';
                                 echo "<script> location.href='../Views/Cliente/home.php' </script>";
                                 break;
                             case 'Auxiliar':
-                                echo '<script>alert("LA BUEEENA AUXILIAR")</script>';
+                                echo '<script>alert(" BIENVENIDO USUARIO")</script>';
                                 echo "<script> location.href='../Views/Auxiliar/home.php' </script>";
                                 break;
                             
@@ -323,17 +328,17 @@
 
 
                     }else{
-                        echo '<script>alert("CONTACTE AL ADMIN QUE LO PUSIERON A SOBRAR")</script>';
+                        echo '<script>alert("ERROR AL INGRESAR, COMUNICARSE CON EL ADMINISTRADOR")</script>';
                         echo "<script> location.href='../Views/Extras/page-login.html' </script>";    
                     }
 
                 }else{
-                    echo '<script>alert("EN LA TRAMPA CON ESA CLAVE SOCIO")</script>';
+                    echo '<script>alert("VERIFICA LA INFORMACION INGRESADA")</script>';
                     echo "<script> location.href='../Views/Extras/page-login.html' </script>";
                 }
 
             }else{
-                echo '<script>alert("PAILAS SOCITO, EN LA MALA")</script>';
+                echo '<script>alert("ERROR AL INGRESAR")</script>';
                 echo "<script> location.href='../Views/Extras/page-register.html' </script>";
             }
 
