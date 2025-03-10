@@ -63,13 +63,17 @@ $stmt->execute();
 $ambientes = $stmt->fetchAll(PDO::FETCH_ASSOC);
 ?>
 
+
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <title>Gestión de Ambientes</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
 </head>
+
+
 <body class="container mt-4">
     <h1 class="mb-4">Gestión de Ambientes</h1>
 
@@ -117,6 +121,8 @@ $ambientes = $stmt->fetchAll(PDO::FETCH_ASSOC);
         </tbody>
     </table>
 
+                
+    
     <!-- Modal de Edición -->
     <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
         <div class="modal-dialog">
@@ -156,6 +162,7 @@ $ambientes = $stmt->fetchAll(PDO::FETCH_ASSOC);
             document.getElementById('edit-disponible').checked = disponible;
         });
     </script>
+
 </body>
 </html>
 
