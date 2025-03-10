@@ -356,7 +356,7 @@
             session_start();
             session_destroy();
 
-            echo "<script>location.href='../Views/Extras/page-login.html'</script>";
+            echo "<script>location.href='../Views/Administrador/home.html'</script>";
         }
 
     }
