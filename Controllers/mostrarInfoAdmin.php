@@ -81,8 +81,7 @@
                     <select name="rol" id="" class="form-control" >
                         <option value="'.$f['rol'].'">'.$f['rol'].'</option>
                         <option value="Administrador">Administrador</option>
-                        <option value="Vendedor">Vendedor</option>
-                        <option value="Cliente">Cliente</option>
+                        <option value="Instructor">Vendedor</option>
                     </select>
                 </div>
 
@@ -96,6 +95,16 @@
                     </select>
                 </div>
 
+                <div class="form-group col-md-6">
+                    <label>Tipo de Formación:</label>
+                    <select name="tipo_formacion" class="form-control" required>
+                    <option value="'.$f['tipo_formacion'].'">'.$f['tipo_formacion'].'</option>
+                        <option value="Bilingüismo">Bilingüismo</option>
+                        <option value="Transversales">Transversales</option>
+                        <option value="Técnica">Técnica</option>
+                        <option value="N/A">N/A</option>
+                    </select>
+                </div>
 
             </div>
 
@@ -318,7 +327,7 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="footer">
-                        <p>2023 © Admin Board. - <a href="#">Sembrar</a></p>
+                        <p>2025 © Admin Board. - <a href="#">Asignacion Ambiente</a></p>
                     </div>
                 </div>
             </div>

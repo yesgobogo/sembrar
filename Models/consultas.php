@@ -150,38 +150,39 @@
             return $f;
         }
 
-        public function actualizarUserAdmin($identificacion,$tipo_doc,$nombres,$apellidos,$email,$telefono,$rol,$estado,$tipo_formacion){
-
+        public function actualizarUserAdmin($identificacion, $tipo_doc, $nombres, $apellidos, $email, $telefono, $rol, $estado, $tipo_formacion) {
             $objConexion = new Conexion();
             $conexion = $objConexion->get_conexion();
-
-            $actualizar = " UPDATE users SET tipo_doc=:tipo_doc, nombres=:nombres, apellidos=:apellidos, email=:email, telefono=:telefono, rol=:rol, estado=:estado tipo_formacion=tipo_formacion WHERE identificacion=:identificacion";
+        
+            $actualizar = "UPDATE users SET tipo_doc=:tipo_doc, nombres=:nombres, apellidos=:apellidos, email=:email, telefono=:telefono, rol=:rol, estado=:estado, tipo_formacion=:tipo_formacion WHERE identificacion=:identificacion";
+        
             $result = $conexion->prepare($actualizar);
-
-            $result->bindParam("identificacion", $identificacion);
-            $result->bindParam("tipo_doc", $tipo_doc);
-            $result->bindParam("nombres", $nombres);
-            $result->bindParam("apellidos", $apellidos);
-            $result->bindParam("email", $email);
-            $result->bindParam("telefono", $telefono);
-            $result->bindParam("rol", $rol);
-            $result->bindParam("estado", $estado);
-            $result->bindParam("tipo_formacion", $tipo_formacion);
-
-            $result->execute();
-
-            echo '<script>alert("Información de usuario actualizada")</script>';
-            echo "<script> location.href='../Views/Administrador/ver-usuarios.php' </script>";
-
+        
+            $result->bindParam(":identificacion", $identificacion);
+            $result->bindParam(":tipo_doc", $tipo_doc);
+            $result->bindParam(":nombres", $nombres);
+            $result->bindParam(":apellidos", $apellidos);
+            $result->bindParam(":email", $email);
+            $result->bindParam(":telefono", $telefono);
+            $result->bindParam(":rol", $rol);
+            $result->bindParam(":estado", $estado);
+            $result->bindParam(":tipo_formacion", $tipo_formacion);
+        
+            if ($result->execute()) {
+                return true;
+            } else {
+                return false;
+            }
         }
+        
 
 
-        public function modificarCuentaAdmin($identificacion,$tipo_doc,$nombres,$apellidos,$email,$telefono,$tipo_formacion){
+        public function modificarCuentaAdmin($identificacion,$tipo_doc,$nombres,$apellidos,$email,$telefono,$estado,$tipo_formacion){
 
             $objConexion = new Conexion();
             $conexion = $objConexion->get_conexion();
 
-            $actualizar = " UPDATE users SET tipo_doc=:tipo_doc, nombres=:nombres, apellidos=:apellidos, email=:email, telefono=:telefono, tipo_formacion=tipo_formacion WHERE identificacion=:identificacion";
+            $actualizar = " UPDATE users SET tipo_doc=:tipo_doc, nombres=:nombres, apellidos=:apellidos, email=:email, telefono=:telefono, estado=estado, tipo_formacion=tipo_formacion WHERE identificacion=:identificacion";
             $result = $conexion->prepare($actualizar);
 
             $result->bindParam("identificacion", $identificacion);
@@ -190,6 +191,7 @@
             $result->bindParam("apellidos", $apellidos);
             $result->bindParam("email", $email);
             $result->bindParam("telefono", $telefono);
+            $result->bindParam("estado", $estado);
             $result->bindParam("tipo_formacion", $tipo_formacion);
 
 
