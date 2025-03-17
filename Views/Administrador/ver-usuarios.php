@@ -154,7 +154,7 @@
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="footer">
-                                <p>2025 © Admin Board. - <a href="#">ASIGNACION</a></p>
+                                <p>2025 © Admin Board. - <a href="#">Asignacion</a></p>
                             </div>
                         </div>
                     </div>

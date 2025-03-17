@@ -64,7 +64,8 @@ INSERT INTO `ambientes` (`Id_ambiente`, `nombre_ambiente`, `disponible`) VALUES
 (24, '122A Aula de Música', 1),
 (25, '122B Emisora', 1),
 (26, '123 Taller Automotriz', 1),
-(27, '124 Hotel Práctico', 1);
+(27, '124 Hotel Práctico', 1)
+(28, '125 Ajedrez', 1);
 
 -- --------------------------------------------------------
 

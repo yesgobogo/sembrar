@@ -18,10 +18,10 @@
                 }
                 </style>
 
-<a href="#" class="menu-logo">
-    <img src="../Dashboard/images/SENA.png" alt="Logo">
-    <span></span>
-</a>
+                 <a href="#" class="menu-logo">
+                      <img src="../Dashboard/images/SENA.png" alt="Logo">
+                  <span></span>
+                </a>
 
                 </div>
                 <ul>

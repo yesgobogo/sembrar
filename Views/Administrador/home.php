@@ -182,7 +182,7 @@
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="footer">
-                                <p>2023 © Admin Board. - <a href="#">Sembrar</a></p>
+                                <p>2025 © Control - <a href="#">Ambientes</a></p>
                             </div>
                         </div>
                     </div>

@@ -17,6 +17,7 @@ try {
         $clave = trim($_POST['identificacion']); // Se usa la identificación como clave
         $rol = trim($_POST['rol']); // Cliente, Instructor o Administrador
         $estado = trim($_POST['estado']); // Pendiente, Activo o Inactivo
+        $estado = trim($_POST['tipo_formacion']);
 
         // Validamos que los campos no estén vacíos
         if (!empty($identificacion) && !empty($tipo_doc) && !empty($nombres) && !empty($apellidos) &&
@@ -34,8 +35,8 @@ try {
             }
 
             // Insertamos los datos en la base de datos con PDO
-            $sql = "INSERT INTO users (identificacion, tipo_doc, nombres, apellidos, email, telefono, clave, rol, estado, foto)
-                    VALUES (:identificacion, :tipo_doc, :nombres, :apellidos, :email, :telefono, :clave, :rol, :estado, :foto)";
+            $sql = "INSERT INTO users (identificacion, tipo_doc, nombres, apellidos, email, telefono, clave, rol, estado,tipo_formacion, foto)
+                    VALUES (:identificacion, :tipo_doc, :nombres, :apellidos, :email, :telefono, :clave, :rol, :estado,:tipo_formacion, :foto)";
             
             $stmt = $pdo->prepare($sql);
             $stmt->bindParam(":identificacion", $identificacion);
@@ -47,18 +48,19 @@ try {
             $stmt->bindParam(":clave", $claveMd);
             $stmt->bindParam(":rol", $rol);
             $stmt->bindParam(":estado", $estado);
+            $stmt->bindParam(":tipo_formacion", $estado);
             $stmt->bindParam(":foto", $foto);
 
             if ($stmt->execute()) {
                 echo '<script>alert("Registro exitoso");</script>';
-                echo "<script>location.href='../Views/Extras/page-register.html';</script>";
+                echo "<script>location.href='../Views/Administrador/ver-usuarios.php';</script>";
             } else {
                 echo '<script>alert("Error al registrar");</script>';
-                echo "<script>location.href='../Views/Extras/page-register.html';</script>";
+                echo "<script>location.href='../Views/Administrador/home.php';</script>";
             }
         } else {
             echo '<script>alert("Por favor, complete todos los campos");</script>';
-            echo "<script>location.href='../Views/Extras/page-register.html';</script>";
+            echo "<script>location.href='../Views/Administrador/home.php';</script>";
         }
     }
 } catch (PDOException $e) {
