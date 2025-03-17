@@ -7,7 +7,7 @@
             $user = "root";
             $pass = "";
             $host = "localhost";
-            $db = "sembrar";
+            $db = "sena";
             $conexion = new PDO("mysql: host=$host; dbname=$db;", $user, $pass);
             return $conexion;
         }
